@@ -4,7 +4,7 @@ import Map from "react-map-gl"
 import './app.css'
 import RoomIcon from "@mui/icons-material/Room";
 import StarIcon from '@mui/icons-material/Star';
-
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 export default function App() {
   const [viewState, setViewState] = useState({
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="map-container" style={{ height: "100vh", width: "100%" }}>
       <Map
-        {...viewState}
+        initialViewState={{viewState}}
         height= "100%"
         width= "100%"
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}

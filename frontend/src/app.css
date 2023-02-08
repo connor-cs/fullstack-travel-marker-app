@@ -6,6 +6,7 @@
   justify-content: space-around;
 }
 
+
 label{
   width: max-content;
   color: tomato;
@@ -28,4 +29,5 @@ label{
 
 .date{
   font-size: 11px;
-}
+} 
+

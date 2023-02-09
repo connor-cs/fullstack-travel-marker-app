@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRef, useState } from "react";
 import "./Login.css";
 
-export default function Login({ setShowLogin, setCurrentUsername,myStorage }) {
+export default function Login({ setShowLogin, setCurrentUser,myStorage }) {
   const [error, setError] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -17,7 +17,7 @@ export default function Login({ setShowLogin, setCurrentUsername,myStorage }) {
     };
     try {
       const res = await axios.post("/users/login", user);
-      setCurrentUsername(res.data.username);
+      setCurrentUser(res.data.username);
       myStorage.setItem('user', res.data.username);
       setShowLogin(false)
     } catch (err) {

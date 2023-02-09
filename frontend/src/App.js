@@ -15,15 +15,15 @@ export default function App() {
     latitude: 40,
     zoom: 3.5,
   });
-  const myStorage = window.localStorage
+  const myStorage = window.localStorage;
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [rating, setRating] = useState(0);
-  const [showRegister, setShowRegister] = useState(false)
-  const [showLogin, setShowLogin] = useState(false)
+  const [showRegister, setShowRegister] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [currentUser, setCurrentUser] = useState(myStorage.getItem("user"));
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="map-container" style={{ height: "100vh", width: "90%" }}>
+    <div className="map-container" style={{ height: "100vh", width: "100%" }}>
       <Map
         {...viewState}
         height="100%"
@@ -140,15 +140,26 @@ export default function App() {
           </Popup>
         ) : null}
         {currentUser ? (
-          <button className="button logout" onclick={handleLogout}>Logout</button>
+          <button className="button logout" onClick={handleLogout}>
+            Logout
+          </button>
         ) : (
           <div className="buttons">
-            <button className="button login" onClick={()=>setShowLogin(true)}>Login</button>
-            <button className="button register" onClick={()=>setShowRegister(true)}>Register</button>
+            <button className="button login" onClick={() => setShowLogin(true)}>
+              Login
+            </button>
+            <button
+              className="button register"
+              onClick={() => setShowRegister(true)}
+            >
+              Register
+            </button>
           </div>
         )}
-        {showRegister && <Register setShowRegister={setShowRegister}/>}
-        {showLogin && <Login setShowLogin={setShowLogin} myStorage={myStorage}/>}
+        {showRegister && <Register setShowRegister={setShowRegister} />}
+        {showLogin && (
+          <Login setShowLogin={setShowLogin} myStorage={myStorage} setCurrentUser={setCurrentUser}/>
+        )}
       </Map>
     </div>
   );
@@ -186,9 +197,8 @@ export default function App() {
     }
   }
 
-  function handleLogout(){
-    myStorage.removeItem("user")
-    setCurrentUser(null)
+  function handleLogout() {
+    myStorage.removeItem("user");
+    setCurrentUser(null);
   }
-
 }

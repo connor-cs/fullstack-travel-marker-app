@@ -6,6 +6,7 @@ const pinRoute = require("./routes/pins");
 const userRoute = require("./routes/users");
 
 dotenv.config();
+const URL = process.env.MONGO_URL
 
 app.use(express.json());
 
@@ -15,7 +16,7 @@ app.use("/api/users", userRoute);
 mongoose.set("strictQuery", false);
 mongoose
   .connect(
-    "mongodb+srv://cyphersc:Rahowa1488@cluster0.18v6g9g.mongodb.net/travel?retryWrites=true&w=majority",
+    URL,
     { useNewUrlParser: true }
   )
   .then(() => {

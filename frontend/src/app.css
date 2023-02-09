@@ -1,4 +1,4 @@
-.card{
+.card {
   width: 250px;
   height: 250px;
   display: flex;
@@ -7,7 +7,7 @@
 }
 
 
-label{
+label {
   width: max-content;
   color: tomato;
   font-size: 13px;
@@ -15,23 +15,23 @@ label{
   margin: 3px 0;
 }
 
-.desc{
+.desc {
   font-size: 14px;
 }
 
-.star{
+.star {
   color: gold
 }
 
-.username{
+.username {
   font-size: 12px;
 }
 
-.date{
+.date {
   font-size: 11px;
-} 
+}
 
-form{
+form {
   height: 250px;
   width: 200px;
   display: flex;
@@ -43,17 +43,18 @@ input, textarea {
   border: none;
   border-bottom: solid 1px grey;
 }
+
 input:focus, textarea:focus {
   outline: none;
 }
 
-input::placeholder, textarea::placeholder{
+input::placeholder, textarea::placeholder {
   font-size: 12px;
   color: lightgray
 }
 
-.submit-button{
-  border:none;
+.submit-button {
+  border: none;
   padding: 5px;
   border-radius: 5px;
   color: white;
@@ -61,25 +62,33 @@ input::placeholder, textarea::placeholder{
   cursor: pointer;
 }
 
-.button{
+.button {
   border: none;
   padding: 5px;
   border-radius: 5px;
-  color:white
+  color: white;
+  cursor: pointer;
 }
 
-.logout{
-  background-color:tomato
-}
-.login{
-  background-color: teal
-}
-.register{
-  background-color:slateblue
+.logout {
+  background-color: tomato;
+  cursor: pointer;
 }
 
-.buttons, .logout{
+.login {
+  background-color: teal;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.register {
+  background-color: slateblue;
+  cursor: pointer;
+}
+
+.buttons, .logout {
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
 }

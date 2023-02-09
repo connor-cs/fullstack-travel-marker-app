@@ -6,6 +6,8 @@ import RoomIcon from "@mui/icons-material/Room";
 import StarIcon from "@mui/icons-material/Star";
 import "mapbox-gl/dist/mapbox-gl.css";
 import axios from "axios";
+import Register from "./Components/Register/Register";
+import Login from "./Components/Login/Login";
 
 export default function App() {
   const [viewState, setViewState] = useState({
@@ -13,13 +15,16 @@ export default function App() {
     latitude: 40,
     zoom: 3.5,
   });
+  const myStorage = window.localStorage
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [rating, setRating] = useState(0);
-  const currentUser = "john";
+  const [showRegister, setShowRegister] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
+  const [currentUser, setCurrentUser] = useState(myStorage.getItem("user"));
 
   useEffect(() => {
     const getPins = async () => {
@@ -134,11 +139,16 @@ export default function App() {
             </div>
           </Popup>
         ) : null}
-        <div className="buttons">
-          <button className="button logout">Logout</button>
-          <button className="button login">Login</button>
-          <button className="button register">Register</button>
-        </div>
+        {currentUser ? (
+          <button className="button logout" onclick={handleLogout}>Logout</button>
+        ) : (
+          <div className="buttons">
+            <button className="button login" onClick={()=>setShowLogin(true)}>Login</button>
+            <button className="button register" onClick={()=>setShowRegister(true)}>Register</button>
+          </div>
+        )}
+        {showRegister && <Register setShowRegister={setShowRegister}/>}
+        {showLogin && <Login setShowLogin={setShowLogin} myStorage={myStorage}/>}
       </Map>
     </div>
   );
@@ -175,4 +185,10 @@ export default function App() {
       console.log(err);
     }
   }
+
+  function handleLogout(){
+    myStorage.removeItem("user")
+    setCurrentUser(null)
+  }
+
 }

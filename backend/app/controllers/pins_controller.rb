@@ -6,7 +6,7 @@ class PinsController < ApplicationController
     end
 
     def create
-        p "----", params
+        p "----", params[:username]
         pin = Pin.create!(pin_params)
         # pin = Pin.create(username: params[:username], title: params[:title], desc: params[:desc], rating: params[:rating], lat: params[:lat], long: params[:long])
         render json: pin, status: :created

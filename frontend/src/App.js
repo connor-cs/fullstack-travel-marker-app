@@ -71,10 +71,10 @@ export default function App() {
                   color: p.username === currentUser ? "tomato" : "slateblue",
                   cursor: "pointer",
                 }}
-                onClick={() => handleMarkerClick(p._id, p.lat, p.long)}
+                onClick={() => handleMarkerClick(p.id, p.lat, p.long)}
               />
             </Marker>
-            {p._id === currentPlaceId && (
+            {p.id === currentPlaceId && (
               <Popup
                 key={p._id}
                 longitude={p.long}

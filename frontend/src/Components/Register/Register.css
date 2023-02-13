@@ -12,14 +12,17 @@
   margin: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
 .logo {
   color: slateblue;
   display: flex;
+  justify-content: center;
   align-items: center;
   font-weight: 700;
+  padding-bottom: 10px;
 }
 
 .registerButton {

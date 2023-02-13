@@ -27,7 +27,7 @@ export default function Login({ setShowLogin, setCurrentUser,myStorage }) {
 
   return (
     <div className="loginContainer">
-      <div className="logo">
+      <div className="login-logo">
         <RoomIcon className="logoIcon" />
         <span>Travel App</span>
       </div>

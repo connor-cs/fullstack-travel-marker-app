@@ -23,12 +23,13 @@
   cursor: pointer;
 }
 
-.logo {
+.login-logo {
   display: flex;
   align-items: center;
   justify-content: center;
   color: teal;
   font-weight: 700;
+  padding-bottom: 10px;
 }
 
 .loginBtn {
